@@ -1,7 +1,7 @@
 import { Group, Mesh, MeshStandardMaterial, PlaneGeometry, RepeatWrapping } from 'three';
 import BUNNYMODEL from './bunny.model.json';
 import BUNNYSCENE from './bunny.scene.json';
-import { loadModel, loadScene, loadTextureSet, GetAsset } from '../../Loaders/loader';
+import { loadModel, loadScene, loadTextureSet, GetAsset } from '../../Loaders/Loader';
 import BUMP from './textures/brick_bump.jpg';
 import DIFFUSE from './textures/brick_diffuse.jpg';
 import ROUGH from './textures/brick_roughness.jpg';
