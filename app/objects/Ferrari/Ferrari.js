@@ -1,6 +1,6 @@
-import { Group, Mesh, MeshStandardMaterial, PlaneGeometry, RepeatWrapping } from 'three';
-import MODEL from './scene.json';
-import { loadModel, loadScene, loadTextureSet, GetAsset } from '../../Loaders/Loader';
+import {Group} from 'three';
+import MODEL from './scene2.json';
+import {loadScene} from '../../Loaders/Loader';
 
 export default class extends Group {
   constructor() {
@@ -9,16 +9,14 @@ export default class extends Group {
     this.loadingFunction = (p) => {
       console.log('loading', p)
     }
-    this.name = 'bunny';
+    this.name = 'ferrari';
     this.load();
   }
 
   async load() {
-    console.log('Loading bunny scene');
+    console.log('Loading scene');
     const model = await loadScene(MODEL, this.loadingFunction);
-    console.log('Loading bunny geo');
     console.log('Done loading');
-
 
     //model.position.set(1.2 / 2, -0.3, 0);
 
