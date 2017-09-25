@@ -1,4 +1,5 @@
 import { ObjectLoader, JSONLoader, TextureLoader } from 'three';
+import THREE from 'three';
 
 export function LoadAsset(loaderClass, url, loadingCallback = ()=>{}, index = 1) {
   const loader = new loaderClass();
@@ -69,5 +70,10 @@ export const loadScene = (url, loadingCallback, index) => {
 
 export const loadSceneSet = (array, loadingCallback) => {
   const loader = ObjectLoader;
+  return LoadAssetArray(loader, array, loadingCallback);
+}
+
+export const objectLoader = (array, loadingCallback) => {
+  const loader = new THREE.ObjectLoader();
   return LoadAssetArray(loader, array, loadingCallback);
 }

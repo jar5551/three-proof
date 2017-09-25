@@ -16,6 +16,7 @@ import { ShaderPass, RenderPass } from './Renderer/EffectRenderer';
 import { FXAAShader } from './Shaders/fxaa/fxaa';
 import { TestShader } from './Shaders/test/test';
 import TWEEN, { Linear } from 'gsap';
+import Ferrari from './objects/Ferrari/Ferrari';
 
 const scene = new Scene();
 const camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
@@ -67,6 +68,7 @@ RendererStore.addChangeListener( (d)=>{
 const OrbitControls = require('three-orbit-controls')(THREE)
 const Bunnies = new Bunny();
 const Lights = new BasicLights();
+const Car = new Ferrari();
 
 // Three JS inspector
 // https://chrome.google.com/webstore/detail/threejs-inspector/dnhjfclbfhcbcdfpjaeacomhbdfjbebi?hl=en
@@ -80,7 +82,7 @@ renderer.renderer.setClearColor(0x000000,1);
 
 // Scene
 const controls = new OrbitControls(camera);
-scene.add(Bunnies, Lights);
+scene.add(Car);
 camera.position.z = 10;
 camera.position.y = 1;
 
@@ -89,7 +91,8 @@ controls.addEventListener('change', (e) => {
 });
 
 
-TWEEN.fromTo(camera.position, 4, {x: -2}, {x: 2, yoyo: true, repeat: -1, ease: Linear.easeNone});
+//TWEEN.fromTo(camera.position, 4, {x: -2}, {x: 2, yoyo: true, repeat: -1, ease: Linear.easeNone});
+//TWEEN.to(camera.position, 4, {x: -2});
 
 // DOM
 document.body.style.margin = 0;

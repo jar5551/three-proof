@@ -22,7 +22,7 @@
     "no-console": 2,
     "no-debugger": 2,
     "no-alert": 2,
-    "no-trailing-spaces": 2,
+    "no-trailing-spaces": 1,
     "key-spacing": [2, {
         "beforeColon": false,
         "afterColon": true

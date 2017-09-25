@@ -1,6 +1,7 @@
 import { Group, Mesh, MeshStandardMaterial, PlaneGeometry, RepeatWrapping } from 'three';
 import BUNNYMODEL from './bunny.model.json';
 import BUNNYSCENE from './bunny.scene.json';
+import COBRAMODEL from '../Cobra/model2.json';
 import { loadModel, loadScene, loadTextureSet, GetAsset } from '../../Loaders/Loader';
 import BUMP from './textures/brick_bump.jpg';
 import DIFFUSE from './textures/brick_diffuse.jpg';
@@ -22,6 +23,9 @@ export default class extends Group {
     const bunnyScene = await loadScene(BUNNYSCENE, this.loadingFunction);
     console.log('Loading bunny geo');
     const geometry = await loadModel(BUNNYMODEL, this.loadingFunction);
+
+    console.log(bunnyScene);
+
     console.log('Loading brick textures');
     const brickTextures = await loadTextureSet([BUMP, DIFFUSE, ROUGH], this.loadingFunction);
     console.log('Done loading')
