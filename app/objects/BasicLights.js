@@ -1,5 +1,5 @@
 import { Group, SpotLight, PointLight } from 'three';
-//import TWEEN, { Linear } from 'gsap';
+import TWEEN, { Linear } from 'gsap';
 export default class BasicLights extends Group {
   constructor(...args) {
     super(...args);

@@ -15,6 +15,7 @@ import BasicLights from './objects/BasicLights';
 import { ShaderPass, RenderPass } from './Renderer/EffectRenderer';
 import { FXAAShader } from './Shaders/fxaa/fxaa';
 import { TestShader } from './Shaders/test/test';
+import TWEEN, { Linear } from 'gsap';
 
 const scene = new Scene();
 const camera = new PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
@@ -78,10 +79,17 @@ renderer.renderer.shadowMap.type = PCFSoftShadowMap;
 renderer.renderer.setClearColor(0x000000,1);
 
 // Scene
-new OrbitControls(camera);
+const controls = new OrbitControls(camera);
 scene.add(Bunnies, Lights);
 camera.position.z = 10;
 camera.position.y = 1;
+
+controls.addEventListener('change', (e) => {
+  console.log(e)
+});
+
+
+TWEEN.fromTo(camera.position, 4, {x: -2}, {x: 2, yoyo: true, repeat: -1, ease: Linear.easeNone});
 
 // DOM
 document.body.style.margin = 0;
