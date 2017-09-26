@@ -1,5 +1,5 @@
 import {Group} from 'three';
-import MODEL from './scene2.json';
+import MODEL from './scene3.json';
 import {loadScene} from '../../Loaders/Loader';
 
 export default class extends Group {

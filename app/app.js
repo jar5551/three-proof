@@ -82,7 +82,7 @@ renderer.renderer.setClearColor(0x000000,1);
 
 // Scene
 const controls = new OrbitControls(camera);
-scene.add(Car);
+scene.add(Car, Lights);
 camera.position.z = 10;
 camera.position.y = 1;
 

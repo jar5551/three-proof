@@ -1,14 +1,23 @@
-import { Group, SpotLight, PointLight } from 'three';
-import TWEEN, { Linear } from 'gsap';
+import {Group, SpotLight, PointLight} from 'three';
+import TWEEN, {Linear} from 'gsap';
+
 export default class BasicLights extends Group {
   constructor(...args) {
     super(...args);
+    this.lights = [];
+    this.createLight();
+    this.addLights();
+  }
 
-    const point = new PointLight(0xFFFFFF, 1, 10, 1);
+  // createLight({color = 0xFFFFFF, intensity = 1, distance = 50, angle = 1, penumbra = 1, decay = 1, position, targetPosition, castShadow = true }) {
+  createLight() {
+
+    // const dir = new SpotLight(color, intensity, distance, angle, penumbra, decay);
     const dir = new SpotLight(0xFFFFFF, 1, 50, 1, 1, 1);
-
     dir.position.set(-1, 5, 2);
-    dir.target.position.set(0,0,0);
+    // dir.position.set(position.x, position.y, position.z);
+    dir.target.position.set(0, 0, 0);
+    // dir.target.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
 
     dir.castShadow = true;
 
@@ -18,11 +27,12 @@ export default class BasicLights extends Group {
     dir.shadow.camera.near = 1;
     dir.shadow.camera.far = 10;
     dir.shadow.camera.fov = 40;
+    this.lights.push(dir);
+  }
 
-    point.position.set(1, 1, 1);
-
-    //TWEEN.fromTo(point.position, 4, {x: -2}, {x: 2, yoyo: true, repeat: -1, ease: Linear.easeNone});
-
-    this.add(dir);
+  addLights() {
+    for (let light of this.lights) {
+      this.add(light);
+    }
   }
 }
